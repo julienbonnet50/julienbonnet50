@@ -1,3 +1,4 @@
+# Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
   # Schedule updates (each hour)
@@ -28,15 +29,6 @@ jobs:
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: Europe/Paris
-          plugin_chess: yes
-          plugin_chess_animation: {
-  "size": 40,
-  "delay": 3,
-  "duration": 0.6
-}
-
-          plugin_chess_platform: lichess.org
-          plugin_chess_user: Filemamas
           plugin_languages: yes
           plugin_languages_analysis_timeout: 15
           plugin_languages_analysis_timeout_repositories: 7.5
