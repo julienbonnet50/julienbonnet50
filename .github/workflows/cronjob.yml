@@ -53,10 +53,6 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
 
           # Options
-          user: julienbonnet50
-          template: classic
-          base: header, activity, community, repositories, metadata
-          config_timezone: Europe/Paris
           plugin_repositories: yes
           plugin_repositories_featured: datesetGenerator
           plugin_repositories_order: featured, pinned, starred, random
