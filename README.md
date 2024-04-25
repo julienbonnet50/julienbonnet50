@@ -5,7 +5,11 @@ Welcome on my github profile
 </a>
 
 <a href="https://github.com/julienbonnet50">
-  <img align="center" width="49%" src="./metrics.plugin.topics.icons.svg" />
+  <img align="center" width="49%" src="./github-metrics.svg" />
+</a>
+
+<a href="https://github.com/julienbonnet50">
+  <img align="center" width="49%" src="./repositories.svg.svg" />
 </a>
 
 <a href="https://github.com/julienbonnet50">
