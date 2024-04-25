@@ -1,6 +1,6 @@
 name: Metrics
 on:
-  schedule: [{cron: "0 0 * * *"}]
+  schedule: [{cron: "0 * * * *"}]
   workflow_dispatch:
   push: {branches: ["master"]}
 jobs:
@@ -57,6 +57,23 @@ jobs:
           plugin_repositories_featured: datesetGenerator
           plugin_repositories_order: featured, pinned, starred, random
           plugin_repositories_pinned: 1
+
+
+  half-calendar:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: calendar.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
                   
 
       
