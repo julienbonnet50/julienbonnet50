@@ -30,6 +30,8 @@ jobs:
           plugin_languages_recent_load: 300
           plugin_languages_sections: most-used
           plugin_languages_threshold: 0%
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
           plugin_topics: yes
           plugin_topics_limit: 0
           plugin_topics_mode: icons
@@ -78,23 +80,23 @@ jobs:
   #       plugin_topics_mode: icons
 
 
-  calendar:
-    runs-on: ubuntu-latest
-    environment: 
-      name: production
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          filename: calendar.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          # committer_token: ${{ secrets.GITHUB_TOKEN }}
-          # Options
-          user: julienbonnet50
-          template: classic
-          base: ""
-          config_timezone: Europe/Paris
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+  # calendar:
+  #   runs-on: ubuntu-latest
+  #   environment: 
+  #     name: production
+  #   steps:
+  #     - uses: lowlighter/metrics@latest
+  #       with:
+  #         filename: calendar.svg
+  #         token: ${{ secrets.METRICS_TOKEN }}
+  #         # committer_token: ${{ secrets.GITHUB_TOKEN }}
+  #         # Options
+  #         user: julienbonnet50
+  #         template: classic
+  #         base: ""
+  #         config_timezone: Europe/Paris
+  #         plugin_isocalendar: yes
+  #         plugin_isocalendar_duration: half-year
 
   # repositories:
   #   runs-on: ubuntu-latest
