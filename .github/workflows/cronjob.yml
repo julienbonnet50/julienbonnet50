@@ -51,7 +51,7 @@ jobs:
         with:
           filename: calendar.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          # committer_token: ${{ secrets.GITHUB_TOKEN }}
           # Options
           user: julienbonnet50
           template: classic
@@ -60,23 +60,23 @@ jobs:
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
 
-  repositories:
-    runs-on: ubuntu-latest
-    environment: 
-      name: production
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          filename: repositories.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          # Options
-          user: julienbonnet50
-          template: classic
-          base: "repositories"
-          plugin_repositories: yes
-          plugin_repositories_order: pinned, featured, starred, random
-          plugin_repositories_pinned: 1
+  # repositories:
+  #   runs-on: ubuntu-latest
+  #   environment: 
+  #     name: production
+  #   steps:
+  #     - uses: lowlighter/metrics@latest
+  #       with:
+  #         filename: repositories.svg
+  #         token: ${{ secrets.METRICS_TOKEN }}
+  #         committer_token: ${{ secrets.GITHUB_TOKEN }}
+  #         # Options
+  #         user: julienbonnet50
+  #         template: classic
+  #         base: "repositories"
+  #         plugin_repositories: yes
+  #         plugin_repositories_order: pinned, featured, starred, random
+  #         plugin_repositories_pinned: 1
 
   
 
