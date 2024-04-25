@@ -4,13 +4,9 @@ Welcome on my github profile
   <img align="center" width="49%" src="./github-metrics.svg" />
 </a>
 
-yo
-
 <a href="https://github.com/julienbonnet50">
   <img align="center" width="49%" src="./calendar.svg" />
 </a>
-
-yo
 
 <a href="https://github.com/julienbonnet50">
   <img align="center" width="49%" src="./metrics.plugin.chess.svg" />
