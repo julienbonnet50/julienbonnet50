@@ -1,44 +1,58 @@
 name: Metrics
+
 on:
-  schedule: [{cron: "0 0 * * *"}]
+  schedule:
+    - cron: "0 0 * * *" # Exécution quotidienne à minuit
   workflow_dispatch:
-  push: {branches: ["main"]}
+  push:
+    branches:
+      - main
+
 jobs:
   achievements:
+    name: 🏆 Achievements
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: production
     permissions:
       contents: write
     steps:
-      - uses: lowlighter/metrics@latest
+      - name: Generate achievements metrics
+        uses: lowlighter/metrics@latest
         with:
           filename: achievements.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: julienbonnet50
+          template: classic
           base: achievements
           plugin_achievements: yes
-          plugin_achievements_threshold: B     
-          plugin_achievements_secrets: yes      
-          plugin_achievements_display: compact  
-          plugin_achievements_limit: 0 
+          plugin_achievements_threshold: B
+          plugin_achievements_secrets: yes
+          plugin_achievements_display: compact
+          plugin_achievements_limit: 0
+          config_timezone: Europe/Paris
 
   github-metrics:
+    name: 📊 GitHub Global Metrics
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: production
     permissions:
       contents: write
     steps:
-      - uses: lowlighter/metrics@latest
+      - name: Generate main metrics
+        uses: lowlighter/metrics@latest
         with:
+          filename: metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: julienbonnet50
           template: classic
           base: header, activity, community, metadata, repositories
           config_timezone: Europe/Paris
+
+          # 🧠 Languages plugin
           plugin_languages: yes
           plugin_languages_analysis_timeout: 15
           plugin_languages_analysis_timeout_repositories: 7.5
@@ -50,24 +64,31 @@ jobs:
           plugin_languages_recent_load: 300
           plugin_languages_sections: most-used
           plugin_languages_threshold: 0%
+
+          # 📆 Activity calendar
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
+
+          # 🧩 Topics
           plugin_topics: yes
           plugin_topics_limit: 0
           plugin_topics_mode: icons
+
+          # 📂 Repositories
           plugin_repositories: yes
           plugin_repositories_order: pinned, featured, starred, random
           plugin_repositories_pinned: 1
 
   chess:
-    name: Last chess game from lichess.org
+    name: ♟️ Last Chess Game (Lichess)
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: production
     permissions:
       contents: write
     steps:
-      - uses: lowlighter/metrics@latest
+      - name: Generate chess metrics
+        uses: lowlighter/metrics@latest
         with:
           filename: metrics.plugin.chess.svg
           base: ""
@@ -77,62 +98,4 @@ jobs:
           plugin_chess_token: ${{ secrets.CHESS_TOKEN }}
           plugin_chess_platform: lichess.org
           plugin_chess_user: Filemamas
-          plugin_chess_animation: #optional
-
-
-  # TODO : Not working 
-  # icons:
-  #   name: Icons
-  #   runs-on: ubuntu-latest
-  #   environment: 
-  #     name: production
-  #   permissions:
-  #     contents: write
-  #   steps:
-  #   - uses: lowlighter/metrics@latest
-  #     with:
-  #       filename: metrics.plugin.topics.icons.svg
-  #       base: ""
-  #       token: ${{ secrets.METRICS_TOKEN }}
-  #       committer_token: ${{ secrets.GITHUB_TOKEN }}
-  #       plugin_topics: yes
-  #       plugin_topics_limit: 0
-  #       plugin_topics_mode: icons
-
-
-  # calendar:
-  #   runs-on: ubuntu-latest
-  #   environment: 
-  #     name: production
-  #   steps:
-  #     - uses: lowlighter/metrics@latest
-  #       with:
-  #         filename: calendar.svg
-  #         token: ${{ secrets.METRICS_TOKEN }}
-  #         # committer_token: ${{ secrets.GITHUB_TOKEN }}
-  #         # Options
-  #         user: julienbonnet50
-  #         template: classic
-  #         base: ""
-  #         config_timezone: Europe/Paris
-  #         plugin_isocalendar: yes
-  #         plugin_isocalendar_duration: half-year
-
-  # repositories:
-  #   runs-on: ubuntu-latest
-  #   environment: 
-  #     name: production
-  #   steps:
-  #     - uses: lowlighter/metrics@latest
-  #       with:
-  #         filename: repositories.svg
-  #         token: ${{ secrets.METRICS_TOKEN }}
-  #         committer_token: ${{ secrets.GITHUB_TOKEN }}
-  #         # Options
-  #         user: julienbonnet50
-  #         template: classic
-  #         base: "repositories"
-  #         plugin_repositories: yes
-  #         plugin_repositories_order: pinned, featured, starred, random
-  #         plugin_repositories_pinned: 1
-
+          plugin_chess_animation: yes
