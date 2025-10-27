@@ -32,6 +32,7 @@ jobs:
           plugin_achievements_display: compact
           plugin_achievements_limit: 0
           config_timezone: Europe/Paris
+          debug: yes
 
   github-metrics:
     name: 📊 GitHub Global Metrics
@@ -98,4 +99,5 @@ jobs:
           plugin_chess_token: ${{ secrets.CHESS_TOKEN }}
           plugin_chess_platform: lichess.org
           plugin_chess_user: Filemamas
-          plugin_chess_animation: yes
+          plugin_chess_animation: no 
+          debug: yes
