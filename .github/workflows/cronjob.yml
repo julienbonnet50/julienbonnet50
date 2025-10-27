@@ -57,9 +57,9 @@ jobs:
 
 
       - name: Achievements
-        uses: lowlighter/metrics@latest
+        uses: stalomeow/metrics@projects-v2
         with:
-          filename: achievements.svg
+          filename: metrics.plugin.achievements.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: ""
           plugin_achievements: yes
@@ -67,13 +67,13 @@ jobs:
           plugin_achievements_threshold: X
           plugin_achievements_limit: 8
 
-      - name: Lichess acc
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.plugin.chess.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
-          plugin_chess: yes
-          plugin_chess_token: ${{ secrets.CHESS_TOKEN }}
-          plugin_chess_user: Filemamas
-          plugin_chess_platform: lichess.org
+      # - name: Lichess acc
+      #   uses: lowlighter/metrics@latest
+      #   with:
+      #     filename: metrics.plugin.chess.svg
+      #     token: ${{ secrets.METRICS_TOKEN }}
+      #     base: ""
+      #     plugin_chess: yes
+      #     plugin_chess_token: ${{ secrets.CHESS_TOKEN }}
+      #     plugin_chess_user: Filemamas
+      #     plugin_chess_platform: lichess.org
