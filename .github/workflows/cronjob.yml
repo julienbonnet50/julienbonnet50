@@ -55,12 +55,6 @@ jobs:
           plugin_repositories_order: pinned, featured, starred, random
           plugin_repositories_pinned: 1
 
-          # Chess 
-          plugin_chess: yes
-          plugin_chess_token: ${{ secrets.CHESS_TOKEN }}
-          plugin_chess_platform: lichess.org
-          plugin_chess_user: Filemamas
-          plugin_chess_animation: no 
 
       - name: Achievements
         uses: lowlighter/metrics@latest
@@ -71,6 +65,7 @@ jobs:
           committer_gist: ${{ secrets.GITHUB_TOKEN }}
           plugin_achievements: yes
           plugin_achievements_display: compact
+          plugin_achievements_only: polyglot, stargazer, sponsor, deployer, member, maintainer, developer, scripter, packager, explorer, infographile, manager
           plugin_fortune: yes
 
       - name: Lichess acc
@@ -81,4 +76,5 @@ jobs:
           base: ""
           plugin_chess: yes
           plugin_chess_token: ${{ secrets.CHESS_TOKEN }}
+          plugin_chess_user: Filemamas
           plugin_chess_platform: lichess.org
