@@ -1,4 +1,4 @@
-Welcome on my github profile, sorry I mainly work on Private repositories for the moment :-)
+Welcome to my GitHub profile. Sorry, most of my work is currently in private repositories.
 
 <a href="https://github.com/julienbonnet50">
   <img align="center" width="49%" src="./metrics.svg" alt="metrics of github profil" />
